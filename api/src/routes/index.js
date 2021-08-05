@@ -1,37 +1,30 @@
 const { Router } = require('express');
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
-//const {obtenerPokemons} = require('../../utils.js')
-
-
 const router = Router();
-
+// Ejemplo: const authRouter = require('./auth.js');
+//const pokemonsRouter = require('./pokemons.js');
+const axios = require('axios');
+const pokemonListDescription = require('./utils.js');
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+//router.use('/pokemons', pokemonsRouter);
 
-router.get('/pokemons',  (req, res)=> {
+router.get('/pokemons', async (req, res)=> {
+    let resultadoPokemon = await pokemonListDescription()
+    res.json(resultadoPokemon)
+   
+});
+
+router.get('/pokemons/:id', async  (req, res)=>{
+    //const { id }= req.params.id;
+    //let pokemonId = await axios.get(`https://pokeapi.co/api/v2/pokemon/${req.params.id}/`)
+   
+    //consolog.log(pokemonId)
+   //res.json(pokemonId)
     
-    res.send('hola mundo desde pokemons');
-});
-
-router.get('/pokemons/:id', (req, res)=> {
-    res.send('hola desde pokemons id');
-});
-
-router.post('/pokemons', (req, res)=> {
-    res.send('hola desde pokemons post');
-});
-
-router.get('/type', (req, res)=> {
-    res.send('hola desde pokemons type');
-});
-
-/* router.get('/pokemons', (req, res)=> { */
-/*     res.send('hola desde pokemons query'); */
-/* }); */
-/*  */
+})
 
 
 
 
-module.exports = router;
+
+module.exports = router
