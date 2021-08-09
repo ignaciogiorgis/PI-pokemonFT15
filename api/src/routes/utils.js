@@ -50,7 +50,7 @@ let pokemonListDescription = async ()=>{
                 height: pokeStats.height,
                 weight: pokeStats.weight,
                 img: pokeStats.sprites.other.dream_world.front_default,
-                type: pokeStats.types.map(typePoke=>typePoke)  
+                types: pokeStats.types.map(p=>p)  
             })
         )
        
@@ -81,28 +81,47 @@ const getPokemonId = async (id)=>{
 	    	height:pokId.height,
 	    	weight:pokId.weight,
 	    	img:pokId.sprites.other.dream_world.front_default,
-	    	type:pokId.types.map(typePoke=>typePoke.type.name)  
+	    	types:pokId.types.map(typePoke=>typePoke.type.name)  
         })})
             return IndividualPokemon;
 } 
 
+const getPokemonDb = async (id)=>{
+    let pokemosDb = await Pokemon.findByPk(id);
+   
+    return pokemosDb.dataValues;
+} 
+
+ const getPokemonDbQuery = async (name)=>{
+     try{
+        let pokemonQuery = await Pokemon.findAll({
+            where:{ name: name  }
+        }) 
+        return pokemonQuery[0] 
+     }catch(error){
+         return error;
+     }
+   
+    
+} 
+
+
 // busca pokemons por query
 const getPokemonQuery = async (name) =>{
-    const pokemonDataQuery = await axios.get(`https://pokeapi.co/api/v2/pokemon/`);
-   
-    const pokemonFind = pokemonDataQuery.data.results.filter((pokeQuery)=>{
-            const pName = pokeQuery.name;
-            const pokName = name.toLowerCase();
-           return pName === pokName; 
-    });
-    
-    const pokemonQueryStats = await axios.get(pokemonFind[0].url);
+    const pokemonDataQuery = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    console.log('pokedataquerry:',pokemonDataQuery.data)
+   /*  const pokemonFind = pokemonDataQuery.data.results.filter((pokeQuery)=>{
+            return pokeQuery.name === name.toLowerCase(); 
+    }); */
+    //console.log('pokefind:',pokemonFind)
+    //const pokemonQueryStats = await axios.get(pokemonFind[0].url);
+    //console.log('pqs--------------------',pokemonQueryStats)
     const pokeArrayUnit = [];
-    pokeArrayUnit.push(pokemonQueryStats.data);
+    pokeArrayUnit.push(pokemonDataQuery.data);
     
     const IndividualPokemon = [];
-        pokeArrayUnit.map(pokId => {
-        IndividualPokemon.push({
+        pokeArrayUnit.map((pokId) =>  {
+         IndividualPokemon.push( {
 	        id:pokId.id,
 	        name:pokId.name,
 	        hp:pokId.stats[0].base_stat,
@@ -112,11 +131,17 @@ const getPokemonQuery = async (name) =>{
 	        height:pokId.height,
 	        weight:pokId.weight,
 	        img:pokId.sprites.other.dream_world.front_default,
-	        type:pokId.types.map(typePoke=>typePoke.type.name)  
+	        types:pokId.types.map(typePoke=>typePoke.type.name)  
 })})
+    if(IndividualPokemon.length>=0){
+        return IndividualPokemon[0]
+    }else{
+        return 'error';
+    }
     
-    return IndividualPokemon;
 }   
+
+
 
 // carga todos los tipos en la base de datos
 const baseDataTypes = async () =>{
@@ -137,4 +162,6 @@ module.exports={
     getPokemonId,
     getPokemonQuery,
     baseDataTypes,
+    getPokemonDb,
+    getPokemonDbQuery
 } 
