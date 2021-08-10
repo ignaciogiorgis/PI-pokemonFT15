@@ -1,0 +1,36 @@
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.menu-secundario{
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+}
+
+.titulo{
+    font-size: 25px;
+    
+}
+
+.boton{
+    padding: 10px;
+    background: rgb(36,36,0);
+    background: linear-gradient(90deg, rgba(36, 36, 0, 0.562) 0%, rgba(251, 235, 9, 0.534) 50%, rgba(255, 0, 0, 0.507) 76%);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Pokemon Solid';
+    font-size: 20px;
+}
+
+button:hover{
+    background-color: rgba(255, 238, 0, 0.61); 
+}
+
+option{
+    background: rgb(36,36,0);
+    background: linear-gradient(90deg, rgba(36, 36, 0, 0.562) 0%, rgba(251, 235, 9, 0.534) 50%, rgba(255, 0, 0, 0.507) 76%);
+}

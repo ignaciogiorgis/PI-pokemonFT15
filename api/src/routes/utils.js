@@ -86,12 +86,14 @@ const getPokemonId = async (id)=>{
             return IndividualPokemon;
 } 
 
+//busca pokemon creado en bd por id
 const getPokemonDb = async (id)=>{
     let pokemosDb = await Pokemon.findByPk(id);
    
     return pokemosDb.dataValues;
 } 
 
+//busca pokemon creado en bd por query
  const getPokemonDbQuery = async (name)=>{
      try{
         let pokemonQuery = await Pokemon.findAll({
@@ -110,12 +112,7 @@ const getPokemonDb = async (id)=>{
 const getPokemonQuery = async (name) =>{
     const pokemonDataQuery = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
     console.log('pokedataquerry:',pokemonDataQuery.data)
-   /*  const pokemonFind = pokemonDataQuery.data.results.filter((pokeQuery)=>{
-            return pokeQuery.name === name.toLowerCase(); 
-    }); */
-    //console.log('pokefind:',pokemonFind)
-    //const pokemonQueryStats = await axios.get(pokemonFind[0].url);
-    //console.log('pqs--------------------',pokemonQueryStats)
+  
     const pokeArrayUnit = [];
     pokeArrayUnit.push(pokemonDataQuery.data);
     
