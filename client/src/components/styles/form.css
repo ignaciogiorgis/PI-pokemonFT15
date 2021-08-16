@@ -1,0 +1,56 @@
+.form-container{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    column-gap: 200px;
+    margin-top: 150px ;
+    background-color: rgba(255, 255, 255, 0.192);
+    width: 85%;
+    margin-left: 7.5%;
+    padding: 35px;
+    box-shadow: 5px 5px 2px 1px rgba(255, 255, 255, 0.945);
+    border-radius: 10px;
+}
+.titulo-form{
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+    
+}
+input{
+    padding: 5px;
+    border-radius: 10px;
+    font-family:'Pokemon Solid' ;
+}
+
+.form-secundari{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.return{
+    margin: 25px auto ;
+    width: 19%; 
+}
+
+.boton-form{
+    padding: 5px;
+    background: rgb(36,36,0);
+    background: linear-gradient(90deg, rgba(36, 36, 0, 0.562) 0%, rgba(251, 235, 9, 0.534) 50%, rgba(255, 0, 0, 0.507) 76%);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Pokemon Solid';
+    font-size: 15px;
+    width: 100%;
+}
+
+.boton-form:hover{
+    background-color: rgba(255, 238, 0, 0.61); 
+}
+
+.container-search{
+    display: flex;
+    column-gap: 30px;
+}
+

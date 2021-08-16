@@ -1,0 +1,46 @@
+.principal-card{
+    width: 85%;
+    height: 260px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(141, 95, 48, 0.397);
+}
+
+.principal-card:hover{
+    background-color: rgba(255, 255, 255, 0.158);
+    box-shadow: 5px 5px 2px 1px rgba(255, 255, 255, 0.945);
+}
+
+.principal-card, h3, p{
+    font-family: 'Pokemon solid';
+}
+
+img {
+    height: 45%;
+    width: 40%;
+    margin-top: 20px;
+    margin-left: 45px;
+}
+
+.types{
+    display: flex;
+    column-gap: 10px;
+    margin: 0 auto;
+}
+
+.card-secundari {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start
+}
+
+.card-secundari h3{
+    margin-left: 45px;
+}
+
+.detail h3{
+    text-decoration: underline;
+    color: black;
+}
+

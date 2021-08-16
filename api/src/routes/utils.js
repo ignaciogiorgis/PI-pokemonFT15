@@ -50,7 +50,7 @@ let pokemonListDescription = async ()=>{
                 height: pokeStats.height,
                 weight: pokeStats.weight,
                 img: pokeStats.sprites.other.dream_world.front_default,
-                types: pokeStats.types.map(p=>p)  
+                types: pokeStats.types.map(p=>p.type.name)  
             })
         )
        

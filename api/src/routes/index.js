@@ -80,7 +80,7 @@ router.post('/pokemons', async(req,res)=>{
                  name: p 
             } 
          }) 
-         newPokemon.addType(typePoke) 
+         newPokemon.addType(typePoke.name) 
      }); 
     res.json(newPokemon)
 })

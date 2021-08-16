@@ -1,12 +1,6 @@
 body {
- 
   margin: 0;
-  font-family: 'Pokemon Hollow'
- 
+  font-family: 'Pokemon Hollow';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
