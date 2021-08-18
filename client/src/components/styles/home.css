@@ -78,3 +78,13 @@ select{ cursor: pointer }
 .buscador-principal{
     margin-bottom: 40px;
 }
+
+.not-find h3{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-left: 140px;
+    background-color: rgba(250, 250, 248, 0.281);
+    border: black solid 3px;
+}

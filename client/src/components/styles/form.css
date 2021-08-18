@@ -25,8 +25,8 @@ input{
 .form-secundari{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 10px;
-    row-gap: 10px;
+    column-gap: 20px;
+    row-gap: 20px;
 }
 
 .return{
@@ -52,5 +52,11 @@ input{
 .container-search{
     display: flex;
     column-gap: 30px;
+}
+
+.error{
+    padding: 0;
+    margin: 3px;
+    border:  red solid 3px;
 }
 

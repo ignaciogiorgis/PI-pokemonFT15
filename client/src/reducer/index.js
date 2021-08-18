@@ -2,7 +2,9 @@
 
 const initialState = {
     pokemons : [],
-    allPokemonsState :[]
+    allPokemonsState :[],
+    types: [],
+    pokemonsDetail : []
 }
 
 function rootReducer(state= initialState, action){
@@ -27,10 +29,15 @@ function rootReducer(state= initialState, action){
                         if(i===action.payload){
                          
                             arrayPoke.push(e)
+                        }else if (typeof i === 'object'){
+                            if(i.name === action.payload){
+                                arrayPoke.push(e)
+                            } 
                         }
+
                  })
-                 })
-            
+                 }) 
+                 console.log(arrayPoke)
                 
             }
             return{
@@ -75,6 +82,21 @@ function rootReducer(state= initialState, action){
                     ...state,
                     pokemons: action.payload
                 }
+            case 'POST_POKEMONS':
+                return{
+                    ...state,
+                }
+            case 'GET_TYPES': 
+            return{
+                ...state,
+                types: action.payload
+            }
+            case 'SEARCH_BY_ID':
+                return{
+                    ...state,
+                    pokemonsDetail: action.payload
+                }
+
         default:
                 return state;
     }

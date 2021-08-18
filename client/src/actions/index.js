@@ -54,5 +54,37 @@ export function searchName(name){
         }
 }}
 
+export function getTypes(){
+    return async function(dispatch){
+        const json = await axios.get('http://localhost:3001/types');
+        return dispatch({
+            type: 'GET_TYPES',
+            payload:json.data
+
+        })
+    }
+}
+
+export function postPokemon(payload){
+    return async function(dispatch){
+        const json = await axios.post('http://localhost:3001/pokemons', payload)
+        
+        return json
+    }
+
+}
+
    
-   
+export function getDetail(id){
+    
+    return async function(dispatch){
+        try{ 
+            const json = await axios.get('http://localhost:3001/pokemons/'+ id);
+            return dispatch({
+                type:'SEARCH_BY_ID',
+                payload: json.data
+            })
+        }catch(error){
+            console.log(error)
+        }
+}}  

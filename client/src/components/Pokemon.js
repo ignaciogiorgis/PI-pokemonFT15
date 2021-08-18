@@ -3,13 +3,13 @@ import {Link} from 'react-router-dom'
 import './styles/pokemon.css';
 
 
-const Pokemon = ({name, img, types}) => {
-    
+const Pokemon = ({name, img, types, id}) => {
+    console.log('types', types)
     return (
         <div className="principal-card">
             <div className="card-secundari">
                 <div className="detail">
-                    <Link to='/detail'>    
+                    <Link to= {'/detail/'+id}   >    
                         <h3>{name}</h3>
                     </Link>
                 </div>
@@ -18,11 +18,8 @@ const Pokemon = ({name, img, types}) => {
                 </div>
             </div>
             <div className="types">
-             {
-                types.map((e)=>{
-                    return <p >"{e}"</p>
-                })
-             }
+              
+             { id < 900 ? types.map((e,i)=>{ return <p key={i} >"{e}"</p> }) : types.map((e, i)=>{ return <p key={i} >"{e.name}"</p> })  }
              </div>
            
         </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import {useDispatch, useSelector} from 'react-redux';
-import { getPokemons, filterTypes, filterExist, ordAlfabetic, ordAttack } from '../actions';
+import { getPokemons, filterTypes, filterExist, ordAlfabetic, ordAttack, getTypes } from '../actions';
 import './styles/home.css'
 import Pokemon from './Pokemon';
 import Pagination from './Pagination';
@@ -13,23 +13,28 @@ const Home = () => {
     const dispatch = useDispatch()
     
     const allPokemons = useSelector(state => state.pokemons)//arreglo de pokemons que me trae el reducer
-    console.log('busqeuda:..........',allPokemons)
+    const allTypes = useSelector(state=> state.types)
+    
     const [orden, setOrden] = useState('');
     const [pageNumber, setPageNumber]  = useState(1); //numero de pagina
     const [pokemonsPerPage, setPokemonsPerPage]  = useState(9); // pokemons por pagina
     const lastPokemonIndex = pageNumber* pokemonsPerPage; //indice del ultimo pokemon en la pagina
     const firstPokemonIndex = lastPokemonIndex - pokemonsPerPage;// indice del primer pokemon
     const pokemonsCurrentPage = allPokemons.slice(firstPokemonIndex, lastPokemonIndex);
-    console.log('final.....',pokemonsCurrentPage)
+    
     const paged = (pageNumber)=> {
         setPageNumber(pageNumber)
     }
     
-    //traer los pokemosn cuando el componente se monta
+    //traer los pokemons y tipos cuando el componente se monta
+    
     useEffect(()=>{
         dispatch(getPokemons())
     }, [dispatch]);
-   
+    useEffect(()=>{
+        dispatch(getTypes())
+    }, [dispatch]);
+    
 
      function handleRefresh(e){
         e.preventDefault();
@@ -64,7 +69,7 @@ const Home = () => {
         setPageNumber(1)
         setOrden(`ordenando ${e.target.value}`)
     }
-    
+    console.log(pokemonsCurrentPage)
     return (
         <Fragment>
             <div className="menu">
@@ -72,7 +77,9 @@ const Home = () => {
                     <h1>Pokemon Api</h1>    
                 </div> 
                 <div className="buscador-principal">
-                    <SearchPokemon />
+                    <SearchPokemon
+                         setPageNumber={setPageNumber}
+                    />
                 </div>
                 <div className="menu-secundario">
                 
@@ -110,26 +117,11 @@ const Home = () => {
                             <label>Tipos</label>
                             <select  onChange={(e) =>handleFilterTypes(e)} className="boton">
                                <option value="all">Todos</option>
-                               <option value="normal">Normal</option>
-                               <option value="fighting">Pelea</option>
-                               <option value="flying">Volador</option>
-                               <option value="poison">Veneno</option>
-                               <option value="ground">Suelo</option>
-                               <option value="rock">Roca</option>
-                               <option value="water">Agua</option>
-                               <option value="bug">Insecto</option>
-                               <option value="ghost">Fantasma</option>
-                               <option value="steel">Metal</option>
-                               <option value="grass">Planta</option>
-                               <option value="fire">Fuego</option>
-                               <option value="electric">Electrico</option>
-                               <option value="psychic">Psiquico</option>
-                               <option value="ice">Hielo</option>
-                               <option value="dragon">Dragon</option>
-                               <option value="dark">Maligno</option>
-                               <option value="fairy">Hada</option>
-                               <option value="unknown">Desconosido</option>
-                               <option value="shadow">Sombra</option>
+                                {    
+                                    allTypes?.map((e, i)=>{
+                                            return <option key={i} value={e.name}>{e.name}</option>
+                                    })
+                                }
                             </select>
                         </div>
                     </div>
@@ -139,24 +131,40 @@ const Home = () => {
                     </div>
                 
                 </div>
-            </div> 
-                <div>
-                    <Pagination
-                        allPokemons={allPokemons.length}
-                        paged={paged}
-                        pokemonsPerPage={pokemonsPerPage}
-                    />    
-                </div>
+            </div>
+            {
+                typeof pokemonsCurrentPage === 'string' 
+            ?
 
-                 <div className="img-pokemon"> 
-                    {pokemonsCurrentPage && pokemonsCurrentPage.map((p, id)=>{
-                        return (
-                            
-                            <Pokemon key={id} name={p.name} img={p.img} types={p.types} />
-                            
-                    )   
-                    })}
+             <div  className="not-find">
+                <h3>No existe el pokemon en la api ni en la base de datos</h3>
+             </div> 
+            :
+            
+             <div>
+             <div>
+             <Pagination
+                allPokemons={allPokemons.length}
+                paged={paged}
+                pokemonsPerPage={pokemonsPerPage}
+             />    
+            </div>
+
+             <div className="img-pokemon"> 
+            { 
+                pokemonsCurrentPage.map((p, id)=>{
+                    return (
+                        <Pokemon key={p.id} id={p.id} name={p.name} img={p.img} types={p.types} />
+                    )
+                  })
+                
+                }
                 </div> 
+
+            </div>
+
+            } 
+               
 
                <div className="footer">
                    <h3>Api pokemon</h3>

@@ -1,0 +1,31 @@
+.detail-principal{
+    width: 60%;
+    display: flex;
+    background-color: rgba(141, 95, 48, 0.397);
+    margin: 60px auto;
+    justify-content: space-evenly;
+    border-radius: 10px;
+}
+
+
+.detail-principal:hover{
+    background-color: rgba(255, 255, 255, 0.158);
+    box-shadow: 5px 5px 2px 1px rgba(255, 255, 255, 0.945);
+}
+
+.container-btn{
+    margin: 0 600px;
+}
+
+.stats{
+    padding: 0;
+    width: 350px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.tip{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

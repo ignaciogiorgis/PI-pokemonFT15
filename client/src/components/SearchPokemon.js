@@ -3,15 +3,11 @@ import { useState } from "react";
 import { useDispatch} from "react-redux";
 import {searchName} from '../actions';
 import './styles/form.css';
-import {Link} from 'react-router-dom'
 
-
-
-
-
-const SearchPokemon = () => {
+const SearchPokemon = ({setPageNumber}) => {
    const dispatch = useDispatch();
    const [name, setName] =  useState('');
+   const [orden, setOrden] = useState('');
 
    function handleInputChange(e){
        e.preventDefault();
@@ -19,7 +15,10 @@ const SearchPokemon = () => {
     }
    function handleSubmit(e){
         e.preventDefault();
-        dispatch(searchName(name))
+        dispatch(searchName(name.toLowerCase()))
+        setPageNumber(1)
+        setOrden(`ordenando ${e.target.value}`)
+        setName('')
    }
    
     return (

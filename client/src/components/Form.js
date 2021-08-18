@@ -1,40 +1,156 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import './styles/form.css';
 import { Link } from 'react-router-dom'; 
+import {useDispatch, useSelector} from 'react-redux';
+import { getTypes, postPokemon } from '../actions';
+
+
+
+function validate(input){
+    let errors = {}
+    if(!input.name){
+        errors.name = 'Se requiere Nombre'
+    } else if (!input.hp){
+        errors.hp = 'se requiere la vida'
+    } else if(!input.attack){
+        errors.attack = 'se requiere el ataque'
+    } else if (!input.defense){
+        errors.defense = 'se requiere la defensa'
+    } else if (!input.speed){
+        errors.speed = ' se requiere la velocidad'
+    } else if (!input.height){
+        errors.height = ' se requiere la altura'
+    }else if (!input.weight){
+        errors.weight = 'se requiere el peso'
+    }else if (!input.img){
+        errors.img = 'se requiere la url'
+    }else if (input.types.length === 0 ){
+        errors.types = 'se requier tipos'
+    }
+    return errors;
+}
+
+
+
+
 
 const Form = () => {
+    const dispatch = useDispatch()
+    const allTypes = useSelector(state => state.types)
+    const [errors, seterrors] = useState({})
+    const [input, setInput] = useState({
+        name: '',
+        hp:'',
+        attack:'',
+        defense:'',
+        speed:'',
+        height:'',
+        weight:'',
+        img:'',
+        types: []
+    })
+
+function handleChange(e){
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        })
+        seterrors(validate({
+            ...input,
+            [e.target.name]: e.target.value
+        }))
+    }
+
+function handleSelect(e){
+    setInput(({
+        ...input,
+        types: [...input.types, e.target.value]
+    }))
+    seterrors(validate({
+        ...input,
+        [e.target.name]: e.target.value
+    }))
+
+}
+
+function handleSubmit(e){
+    e.preventDefault();
+    dispatch(postPokemon(input));
+    alert('Personaje Creado');
+    
+    setInput({
+        name: '',
+        hp:'',
+        attack:'',
+        defense:'',
+        speed:'',
+        height:'',
+        weight:'',
+        img:'',
+        types: []
+    })
+}
+
+    useEffect(() => {
+       dispatch(getTypes())
+    }, [dispatch])
+
+
+
+
+
+
     return (
         <Fragment>
          <div className="form-container">
             <h1 className="titulo-form">Crea Tu pokemon</h1>
-            <form>
+            <form onSubmit={(e)=>handleSubmit(e)}>
              <div className="form-secundari">
                 <div>
-                    <input type="text" name="name" placeholder='Nombre' />
+                    <input   type="text" name="name" placeholder='Nombre' value={input.name} onChange={(e)=>handleChange(e)} />
+                    {errors.name && (<p className="error">{errors.name}</p>)}
                 </div>
                 <div>
-                    <input type="number" name="hp" placeholder='Vida' />
+                    <input type="number" name="hp" placeholder='Vida' value={input.hp} onChange={(e)=>handleChange(e)} />
+                    {errors.hp && (<p className="error">{errors.hp}</p>)}
                 </div>
                 <div>
-                    <input type="number" name="attack" placeholder='Fuerza' />
+                    <input type="number" name="attack" placeholder='Fuerza' value={input.attack} onChange={(e)=>handleChange(e)} />
+                    {errors.attack && (<p className="error">{errors.attack}</p>)}
                 </div>
                 <div>
-                    <input type="number" name="defense" placeholder='Defensa' />
+                    <input type="number" name="defense" placeholder='Defensa' value={input.defense} onChange={(e)=>handleChange(e)} />
+                    {errors.defense && (<p className="error">{errors.defense}</p>)}
                 </div>
                 <div>
-                    <input type="number" name="speed" placeholder='Velocidad' />
+                    <input type="number" name="speed" placeholder='Velocidad' value={input.speed} onChange={(e)=>handleChange(e)} />
+                    {errors.speed && (<p className="error">{errors.speed}</p>)}
                 </div>
                 <div>
-                    <input type="number" name="height" placeholder='Altura' />
+                    <input type="number" name="height" placeholder='Altura' value={input.height} onChange={(e)=>handleChange(e)} />
+                    {errors.height && (<p className="error">{errors.height}</p>)}
                 </div>
                 <div>
-                    <input type="number" name="weight" placeholder='Peso' />
+                    <input type="number" name="weight" placeholder='Peso' value={input.weight} onChange={(e)=>handleChange(e)} />
+                    {errors.weight && (<p className="error">{errors.weight}</p>)}
                 </div>
                 <div>
-                    <input type="url" name="img" placeholder='Imagen' />
+                    <input type="url" name="img" placeholder='Imagen' value={input.img}  onChange={(e)=>handleChange(e)} />
+                    {errors.img && (<p className="error">{errors.img}</p>)}
+                </div>
+               
+                <div>
+                    <select onChange={(e)=>handleSelect(e)} className="boton" >
+                        {    
+                            allTypes?.map((e)=>{
+                                return <option value={e.name}>{e.name}</option>
+                            })
+                        }
+                    </select>
+                    {errors.types && (<p className="error">{errors.types}</p>)}
                 </div>
                 <div>
-                    <button className="boton-form" type="submit">Crear</button>
+                        <button className="boton-form" type="submit">Crear</button> 
                 </div>
                 </div>
             </form>

@@ -1,4 +1,4 @@
-const { Router } = require('express');
+const { Router, query } = require('express');
 const router = Router();
 const axios = require('axios');
 const {pokemonListDescription, getPokemonId, getPokemonQuery, getPokemonDb, getPokemonDbQuery} = require('./utils.js');
@@ -7,6 +7,7 @@ const { Sequelize } = require('sequelize');
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+let pokemonId= 900
 //router.use('/pokemons', pokemonsRouter);
 router.get('/pokemons', async (req, res)=> {
     const {name} = req.query;
@@ -15,13 +16,19 @@ router.get('/pokemons', async (req, res)=> {
         try{
             const QueryPokemon = await getPokemonQuery(name);
             if(QueryPokemon){ 
-                return res.json(QueryPokemon);
+                let arrayQuery = []
+                arrayQuery.push(QueryPokemon)
+                return res.json(arrayQuery);
             }
         }catch(err){
             try{
                 const QueryPokemonDb = await getPokemonDbQuery(name)
                 if(QueryPokemonDb){
-                    return res.json(QueryPokemonDb);
+                    
+                    let arrayDbQuery =[]
+                    arrayDbQuery.push(QueryPokemonDb)
+                    
+                    return res.json(arrayDbQuery);
                 }else{
                     res.json('no existe el pokemon en la base de datos ni en la api')
                 }
@@ -48,11 +55,16 @@ router.get('/pokemons/:id', async (req, res) => {
             if( id < 899){
                 let pokemonId = await getPokemonId(id); 
                return  res.json(pokemonId);
-            }else { 
+            }else {
+                let arrayDb = [] 
                 let pokemonDb = await getPokemonDb(id);
-                return  res.json(pokemonDb);
+                
+                arrayDb.push(pokemonDb)
+                
+                return  res.json(arrayDb);
             }  
         } catch (error) {
+                console.log(error)
                 return res.status(404).send(error)
         }
 });
@@ -62,7 +74,7 @@ router.get('/pokemons/:id', async (req, res) => {
 
 router.post('/pokemons', async(req,res)=>{
     let { name, hp, attack, defense, speed, height, weight, img, types} = req.body;
-    let pokemonId= 900
+    
         const newPokemon = await Pokemon.create({
             id: pokemonId++,
             name: name,
@@ -74,14 +86,15 @@ router.post('/pokemons', async(req,res)=>{
             weight: weight,
             img: img
         })
-    types.map(async (p) => { 
+     
          let typePoke = await Type.findAll({ 
              where: { 
-                 name: p 
+                 name: types
             } 
          }) 
-         newPokemon.addType(typePoke.name) 
-     }); 
+         
+         newPokemon.addType(typePoke)
+         
     res.json(newPokemon)
 })
 

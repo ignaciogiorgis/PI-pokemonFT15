@@ -12,7 +12,7 @@ function App() {
       <Route exact path='/' component={LandingPage}/>
       <Route exact path='/home' component={Home}/>
       <Route path='/formulario' component={Form}/>
-      <Route path='/detail' component={DetailPokemon}/>
+      <Route exact path='/detail/:id' component={DetailPokemon}/>
         
     
        

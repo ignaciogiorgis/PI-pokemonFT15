@@ -88,17 +88,23 @@ const getPokemonId = async (id)=>{
 
 //busca pokemon creado en bd por id
 const getPokemonDb = async (id)=>{
-    let pokemosDb = await Pokemon.findByPk(id);
+    let pokemosDb = await Pokemon.findByPk(id,{
+        include : Type
+    });
    
-    return pokemosDb.dataValues;
+    return pokemosDb;
 } 
 
 //busca pokemon creado en bd por query
  const getPokemonDbQuery = async (name)=>{
      try{
         let pokemonQuery = await Pokemon.findAll({
-            where:{ name: name  }
-        }) 
+            where:{name: name},
+            include : {
+                model : Type
+             }
+        })
+
         return pokemonQuery[0] 
      }catch(error){
          return error;
@@ -111,7 +117,7 @@ const getPokemonDb = async (id)=>{
 // busca pokemons por query
 const getPokemonQuery = async (name) =>{
     const pokemonDataQuery = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
-    console.log('pokedataquerry:',pokemonDataQuery.data)
+    
   
     const pokeArrayUnit = [];
     pokeArrayUnit.push(pokemonDataQuery.data);
