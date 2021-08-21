@@ -7,19 +7,19 @@ const Pokemon = ({name, img, types, id}) => {
     console.log('types', types)
     return (
         <div className="principal-card">
-            <div className="card-secundari">
-                <div className="detail">
+            <div className="detail">
                     <Link to= {'/detail/'+id}   >    
                         <h3>{name}</h3>
                     </Link>
-                </div>
-                <div>
+            </div>
+            <div className="card-secundari">
+                 <div>
                     <img src={img} alt="img not found" />
                 </div>
             </div>
             <div className="types">
               
-             { id < 900 ? types.map((e,i)=>{ return <p key={i} >"{e}"</p> }) : types.map((e, i)=>{ return <p key={i} >"{e.name}"</p> })  }
+             { id < 900 ? types.map((e,i)=>{ return <p key={i} >{e}</p> }) : types.map((e, i)=>{ return <p key={i} >{e.name}</p> })  }
              </div>
            
         </div>

@@ -29,7 +29,7 @@ const SearchPokemon = ({setPageNumber}) => {
                    onChange={(e)=>handleInputChange(e)}
             />
             
-            <button className="boton"  onClick={(e)=>handleSubmit(e)}>Buscar</button>
+            <button className="boton-home"  onClick={(e)=>handleSubmit(e)}>Buscar</button>
             
         </div>
       );

@@ -13,9 +13,6 @@ function App() {
       <Route exact path='/home' component={Home}/>
       <Route path='/formulario' component={Form}/>
       <Route exact path='/detail/:id' component={DetailPokemon}/>
-        
-    
-       
     </BrowserRouter>
   );
 }

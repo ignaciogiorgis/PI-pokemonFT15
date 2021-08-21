@@ -1,31 +1,25 @@
 import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
-import styled from 'styled-components';
-import '../App.css'
+
+import './styles/landing.css'
 
 
-const PagePrincipal = styled.div`
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    column-gap: 20px;
-    flex-direction:column;
-`;
 
 
 const LandingPage = () => {
     
     return (
         <Fragment> 
-            <PagePrincipal className="landing-page">
-                <div className="titulo">
+            
+            <div className="landing-page">
+                <div className="title">
                     <h1 >Pokemon Api</h1>
                 </div>
                 
                 <Link to="/home">
-                    <button className="boton">Ingresar</button>
+                    <button className="boton-landing">Ingresar</button>
                 </Link>
-            </PagePrincipal>
+            </div>
         </Fragment>
       );
 }

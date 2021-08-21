@@ -20,6 +20,7 @@ const DetailPokemon = (props) => {
 
     return (
       <Fragment>
+        <div className="fondo-detail">
         {
           pokemonId.length > 0 ?
             <div className="detail-principal">
@@ -48,8 +49,12 @@ const DetailPokemon = (props) => {
         }
 
         <Link to="/home">
-          <button className="boton container-btn">Volver</button>
+          <button className="boton-detail container-btn">Volver</button>
         </Link>
+        <div className="footer-detail">
+                   <h3>Api pokemon</h3>
+               </div>
+        </div>
       </Fragment>
       );
 }

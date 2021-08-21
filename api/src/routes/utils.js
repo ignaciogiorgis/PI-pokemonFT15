@@ -141,7 +141,20 @@ const getPokemonQuery = async (name) =>{
     }else{
         return 'error';
     }
-    
+   /*  let allPokemons = await pokemonListDescription();
+    let resp; 
+    allPokemons.forEach((e)=>{
+        console.log(e.name)
+        if(e.name.includes(name)){
+            resp = e
+    }
+        
+    })
+    console.log(resp)
+    return resp;
+ */
+
+
 }   
 
 

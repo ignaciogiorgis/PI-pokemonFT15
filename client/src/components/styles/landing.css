@@ -1,0 +1,33 @@
+
+
+
+.landing-page{
+    background: url('../../fondo3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display:flex;
+    height: 660px;
+    column-gap: 20px;
+    flex-direction:column;
+}
+
+.title{
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    margin-left: 65px;
+}
+
+.boton-landing{
+    font-family: 'Abel', sans-serif; 
+    padding: 15px;
+    font-size: 30px;
+    background-color: rgba(82, 81, 77, 0.596);
+    margin-left: 100px ; 
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.boton-landing:hover{
+    background-color: rgba(240, 255, 255, 0.267);
+}

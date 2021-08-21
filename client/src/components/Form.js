@@ -102,44 +102,54 @@ function handleSubmit(e){
 
     return (
         <Fragment>
+         <div className="fondo-form">       
          <div className="form-container">
             <h1 className="titulo-form">Crea Tu pokemon</h1>
             <form onSubmit={(e)=>handleSubmit(e)}>
              <div className="form-secundari">
                 <div>
+                    <label>Nombre : </label>
                     <input   type="text" name="name" placeholder='Nombre' value={input.name} onChange={(e)=>handleChange(e)} />
                     {errors.name && (<p className="error">{errors.name}</p>)}
                 </div>
                 <div>
+                    <label>Vida : </label>
                     <input type="number" name="hp" placeholder='Vida' value={input.hp} onChange={(e)=>handleChange(e)} />
                     {errors.hp && (<p className="error">{errors.hp}</p>)}
                 </div>
                 <div>
+                    <label>Fuerza : </label>
                     <input type="number" name="attack" placeholder='Fuerza' value={input.attack} onChange={(e)=>handleChange(e)} />
                     {errors.attack && (<p className="error">{errors.attack}</p>)}
                 </div>
                 <div>
+                     <label>Defensa : </label>
                     <input type="number" name="defense" placeholder='Defensa' value={input.defense} onChange={(e)=>handleChange(e)} />
                     {errors.defense && (<p className="error">{errors.defense}</p>)}
                 </div>
                 <div>
+                    <label>Velocidad : </label>
                     <input type="number" name="speed" placeholder='Velocidad' value={input.speed} onChange={(e)=>handleChange(e)} />
                     {errors.speed && (<p className="error">{errors.speed}</p>)}
                 </div>
                 <div>
+                    <label>Altura : </label>
                     <input type="number" name="height" placeholder='Altura' value={input.height} onChange={(e)=>handleChange(e)} />
                     {errors.height && (<p className="error">{errors.height}</p>)}
                 </div>
                 <div>
+                    <label>Peso : </label>
                     <input type="number" name="weight" placeholder='Peso' value={input.weight} onChange={(e)=>handleChange(e)} />
                     {errors.weight && (<p className="error">{errors.weight}</p>)}
                 </div>
                 <div>
+                    <label>Imagen : </label>
                     <input type="url" name="img" placeholder='Imagen' value={input.img}  onChange={(e)=>handleChange(e)} />
                     {errors.img && (<p className="error">{errors.img}</p>)}
                 </div>
                
                 <div>
+                    <label>Tipos : </label>
                     <select onChange={(e)=>handleSelect(e)} className="boton" >
                         {    
                             allTypes?.map((e)=>{
@@ -162,9 +172,10 @@ function handleSubmit(e){
                     <button className="boton-form">Volver</button>
                 </Link>
             </div>
-         <div className="footer">
+         <div className="footer-form">
                    <h3>Api pokemon</h3>
          </div>
+        </div>
         </Fragment>
       );
       

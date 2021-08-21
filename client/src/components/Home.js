@@ -31,6 +31,7 @@ const Home = () => {
     useEffect(()=>{
         dispatch(getPokemons())
     }, [dispatch]);
+
     useEffect(()=>{
         dispatch(getTypes())
     }, [dispatch]);
@@ -69,11 +70,13 @@ const Home = () => {
         setPageNumber(1)
         setOrden(`ordenando ${e.target.value}`)
     }
-    console.log(pokemonsCurrentPage)
+    
     return (
         <Fragment>
+            <div className="body-principal">
+
             <div className="menu">
-                <div className="titulo">
+                <div className="title">
                     <h1>Pokemon Api</h1>    
                 </div> 
                 <div className="buscador-principal">
@@ -84,13 +87,13 @@ const Home = () => {
                 <div className="menu-secundario">
                 
                     <div>
-                        <Link to="/formulario"><button className="boton">Crear Pokemon</button></Link>
+                        <Link to="/formulario"><button className="boton-home">Crear Pokemon</button></Link>
                     </div>
 
                     <div className="container">
                         <div className="container-menu">
                             <label>Alfabetico</label>
-                            <select onChange={(e) =>handleAlfabetic(e)} className="boton" >
+                            <select onChange={(e) =>handleAlfabetic(e)} className="select-layout" >
                                 <option >-- Elige --</option>
                                 <option value="asc">Asendente</option>
                                 <option value="desc">Desendente</option>
@@ -98,7 +101,7 @@ const Home = () => {
                         </div>
                         <div className="container-menu">
                             <label>Fuerza</label>
-                            <select onChange={(e) =>handleOrderAttack(e)}  className="boton">
+                            <select onChange={(e) =>handleOrderAttack(e)}  className="select-layout">
                                 <option >-- Elige --</option>
                                 <option  value="ascf">Asendente</option>
                                 <option value="descf">Desendente</option>
@@ -106,7 +109,7 @@ const Home = () => {
                         </div>
                         <div className="container-menu">
                             <label>Existencia</label>
-                            <select onChange={(e) =>handleFilterExist(e)}  className="boton">
+                            <select onChange={(e) =>handleFilterExist(e)}  className="select-layout">
                                 <option value="all">Todos</option>
                                 <option value="cre">Creados</option>
                                 <option value="Ex">Existentes</option>
@@ -115,7 +118,7 @@ const Home = () => {
 
                         <div className="container-menu">
                             <label>Tipos</label>
-                            <select  onChange={(e) =>handleFilterTypes(e)} className="boton">
+                            <select  onChange={(e) =>handleFilterTypes(e)} className="select-layout">
                                <option value="all">Todos</option>
                                 {    
                                     allTypes?.map((e, i)=>{
@@ -127,7 +130,7 @@ const Home = () => {
                     </div>
 
                     <div>
-                        <button className="boton" onClick={(e)=>handleRefresh(e)}>Refrescar Pagina</button>
+                        <button className="boton-home" onClick={(e)=>handleRefresh(e)}>Refrescar Pagina</button>
                     </div>
                 
                 </div>
@@ -169,7 +172,7 @@ const Home = () => {
                <div className="footer">
                    <h3>Api pokemon</h3>
                </div>
-         
+        </div>
        
         </Fragment>           
 );

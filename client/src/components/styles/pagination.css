@@ -1,6 +1,6 @@
 .paged-principal{
     display: flex;
-    column-gap: 35px;
+    column-gap: 1px;
     justify-content: center;
     
 }
@@ -8,20 +8,16 @@ li{
     list-style-type: none;
 }
 .a-paged a{
-    color: white ;
-    border: white solid 3px;
-    padding: 2px 25px;
-    background: rgb(36,36,0);
-    background: linear-gradient(90deg, rgba(36, 36, 0, 0.562) 0%, rgba(251, 235, 9, 0.534) 50%, rgba(255, 0, 0, 0.507) 76%);
+    font-family: 'Abel', sans-serif; 
+    padding: 15px;
+    font-size: 15px;
+    background-color: rgba(82, 81, 77, 0.596);
+    margin-left: 100px ; 
     border: none;
     border-radius: 10px;
-    font-family: 'Pokemon Solid';
-    font-size: 10px;
-
+    font-weight: bold;
 }
 
-.buttons-pag:hover{
-    background-color: rgba(255, 238, 0, 0.61); 
-}
+
 
 a{ cursor: pointer }
