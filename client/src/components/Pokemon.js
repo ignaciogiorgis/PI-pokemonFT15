@@ -4,7 +4,7 @@ import './styles/pokemon.css';
 
 
 const Pokemon = ({name, img, types, id}) => {
-    console.log('types', types)
+    
     return (
         <div className="principal-card">
             <div className="detail">

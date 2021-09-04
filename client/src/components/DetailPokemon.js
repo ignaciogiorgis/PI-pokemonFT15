@@ -49,7 +49,7 @@ const DetailPokemon = (props) => {
         }
 
         <Link to="/home">
-          <button className="boton-detail container-btn">Volver</button>
+          <button className="boton-detail container-btn type1">Volver</button>
         </Link>
         <div className="footer-detail">
                    <h3>Api pokemon</h3>

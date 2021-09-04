@@ -87,14 +87,14 @@ const Home = () => {
                 <div className="menu-secundario">
                 
                     <div>
-                        <Link to="/formulario"><button className="boton-home">Crear Pokemon</button></Link>
+                        <Link to="/formulario"><button className="boton-home type1">Crear Pokemon</button></Link>
                     </div>
 
                     <div className="container">
                         <div className="container-menu">
                             <label>Alfabetico</label>
                             <select onChange={(e) =>handleAlfabetic(e)} className="select-layout" >
-                                <option >-- Elige --</option>
+                                <option selected >-- Elige --</option>
                                 <option value="asc">Asendente</option>
                                 <option value="desc">Desendente</option>
                             </select>
@@ -130,7 +130,7 @@ const Home = () => {
                     </div>
 
                     <div>
-                        <button className="boton-home" onClick={(e)=>handleRefresh(e)}>Refrescar Pagina</button>
+                        <button className="boton-home type1" onClick={(e)=>handleRefresh(e)}>Refrescar Pagina</button>
                     </div>
                 
                 </div>

@@ -17,7 +17,7 @@ const LandingPage = () => {
                 </div>
                 
                 <Link to="/home">
-                    <button className="boton-landing">Ingresar</button>
+                    <button className="boton-landing type1">Ingresar</button>
                 </Link>
             </div>
         </Fragment>

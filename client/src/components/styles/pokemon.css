@@ -17,10 +17,13 @@
 
 img {
     height: 45%;
-    width: 100%;
+    width: 60%;
     margin-top: 20px;
     margin-left: 45px;
 }
+
+.card-secundari:hover  {-webkit-transform:scale(1.5);transform:scale(1.5);}
+.card-secundari {overflow:hidden;}
 
 .types{
     display: flex;

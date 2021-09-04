@@ -107,42 +107,42 @@ function handleSubmit(e){
             <h1 className="titulo-form">Crea Tu pokemon</h1>
             <form onSubmit={(e)=>handleSubmit(e)}>
              <div className="form-secundari">
-                <div>
+                <div className="input-form">
                     <label>Nombre : </label>
                     <input   type="text" name="name" placeholder='Nombre' value={input.name} onChange={(e)=>handleChange(e)} />
                     {errors.name && (<p className="error">{errors.name}</p>)}
                 </div>
-                <div>
+                <div className="input-form">
                     <label>Vida : </label>
                     <input type="number" name="hp" placeholder='Vida' value={input.hp} onChange={(e)=>handleChange(e)} />
                     {errors.hp && (<p className="error">{errors.hp}</p>)}
                 </div>
-                <div>
+                <div className="input-form">
                     <label>Fuerza : </label>
                     <input type="number" name="attack" placeholder='Fuerza' value={input.attack} onChange={(e)=>handleChange(e)} />
                     {errors.attack && (<p className="error">{errors.attack}</p>)}
                 </div>
-                <div>
+                <div className="input-form">
                      <label>Defensa : </label>
                     <input type="number" name="defense" placeholder='Defensa' value={input.defense} onChange={(e)=>handleChange(e)} />
                     {errors.defense && (<p className="error">{errors.defense}</p>)}
                 </div>
-                <div>
+                <div className="input-form">
                     <label>Velocidad : </label>
                     <input type="number" name="speed" placeholder='Velocidad' value={input.speed} onChange={(e)=>handleChange(e)} />
                     {errors.speed && (<p className="error">{errors.speed}</p>)}
                 </div>
-                <div>
+                <div className="input-form">
                     <label>Altura : </label>
                     <input type="number" name="height" placeholder='Altura' value={input.height} onChange={(e)=>handleChange(e)} />
                     {errors.height && (<p className="error">{errors.height}</p>)}
                 </div>
-                <div>
+                <div className="input-form">
                     <label>Peso : </label>
                     <input type="number" name="weight" placeholder='Peso' value={input.weight} onChange={(e)=>handleChange(e)} />
                     {errors.weight && (<p className="error">{errors.weight}</p>)}
                 </div>
-                <div>
+                <div className="input-form">
                     <label>Imagen : </label>
                     <input type="url" name="img" placeholder='Imagen' value={input.img}  onChange={(e)=>handleChange(e)} />
                     {errors.img && (<p className="error">{errors.img}</p>)}
@@ -160,7 +160,7 @@ function handleSubmit(e){
                     {errors.types && (<p className="error">{errors.types}</p>)}
                 </div>
                 <div>
-                        <button className="boton-form" type="submit">Crear</button> 
+                        <button className="boton-form type1" type="submit">Crear</button> 
                 </div>
                 </div>
             </form>
@@ -169,7 +169,7 @@ function handleSubmit(e){
          </div>
          <div className="return">
                 <Link to='/home'>
-                    <button className="boton-form">Volver</button>
+                    <button className="boton-form type1">Volver</button>
                 </Link>
             </div>
          <div className="footer-form">
