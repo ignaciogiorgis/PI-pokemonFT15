@@ -16,7 +16,12 @@
     flex-direction: row;
     column-gap: 20px;
 }
+.title{
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    margin-left: 65px;
 
+}
 .boton-home{
     position: relative;
     padding: 1em 1.5em;

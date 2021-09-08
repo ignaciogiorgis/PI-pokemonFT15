@@ -3,7 +3,7 @@ import './styles/form.css';
 import { Link } from 'react-router-dom'; 
 import {useDispatch, useSelector} from 'react-redux';
 import { getTypes, postPokemon } from '../actions';
-
+import Spinner from './Spinner';
 
 
 function validate(input){
@@ -49,6 +49,11 @@ const Form = () => {
         img:'',
         types: []
     })
+const [cargando, guardarCargando] = useState(true);
+
+setTimeout(() => {
+    guardarCargando(false)
+}, 2500);
 
 function handleChange(e){
         setInput({
@@ -176,6 +181,7 @@ function handleSubmit(e){
                    <h3>Api pokemon</h3>
          </div>
         </div>
+        {cargando ? <Spinner /> : null}  
         </Fragment>
       );
       

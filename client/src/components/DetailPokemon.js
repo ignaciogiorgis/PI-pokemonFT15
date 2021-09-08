@@ -1,21 +1,25 @@
 import React, {Fragment} from 'react';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import {getDetail} from '../actions';
 import { Link } from 'react-router-dom';
-import './styles/deteail.css'
+import './styles/deteail.css';
+import Spinner from './Spinner';
 
 
 const DetailPokemon = (props) => {
   const dispatch = useDispatch()
-  
+  const [cargando, guardarCargando] = useState(true);
   
   useEffect(() => {
     dispatch(getDetail(props.match.params.id))
   }, [dispatch])
 
   const pokemonId = useSelector(state=> state.pokemonsDetail)
- 
+
+  setTimeout(() => {
+    guardarCargando(false)
+  }, 2500);
 
 
     return (
@@ -55,6 +59,7 @@ const DetailPokemon = (props) => {
                    <h3>Api pokemon</h3>
                </div>
         </div>
+        {cargando ? <Spinner /> : null}  
       </Fragment>
       );
 }

@@ -1,6 +1,6 @@
 import React,{Fragment} from 'react';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 
 import {useDispatch, useSelector} from 'react-redux';
 import { getPokemons, filterTypes, filterExist, ordAlfabetic, ordAttack, getTypes } from '../actions';
@@ -8,6 +8,8 @@ import './styles/home.css'
 import Pokemon from './Pokemon';
 import Pagination from './Pagination';
 import SearchPokemon from './SearchPokemon';
+import Spinner from './Spinner'
+
 
 const Home = () => {
     const dispatch = useDispatch()
@@ -21,10 +23,11 @@ const Home = () => {
     const lastPokemonIndex = pageNumber* pokemonsPerPage; //indice del ultimo pokemon en la pagina
     const firstPokemonIndex = lastPokemonIndex - pokemonsPerPage;// indice del primer pokemon
     const pokemonsCurrentPage = allPokemons.slice(firstPokemonIndex, lastPokemonIndex);
-    
+    const [cargando, guardarCargando] = useState(true)
     const paged = (pageNumber)=> {
         setPageNumber(pageNumber)
     }
+    
     
     //traer los pokemons y tipos cuando el componente se monta
     
@@ -35,8 +38,12 @@ const Home = () => {
     useEffect(()=>{
         dispatch(getTypes())
     }, [dispatch]);
-    
 
+    setTimeout(() => {
+        guardarCargando(false)
+    }, 4900);
+
+    
      function handleRefresh(e){
         e.preventDefault();
         dispatch(getPokemons()) ;
@@ -73,6 +80,7 @@ const Home = () => {
     
     return (
         <Fragment>
+            
             <div className="body-principal">
 
             <div className="menu">
@@ -152,7 +160,7 @@ const Home = () => {
                 pokemonsPerPage={pokemonsPerPage}
              />    
             </div>
-
+            
              <div className="img-pokemon"> 
             { 
                 pokemonsCurrentPage.map((p, id)=>{
@@ -167,13 +175,13 @@ const Home = () => {
             </div>
 
             } 
-               
-
+            
+            
                <div className="footer">
                    <h3>Api pokemon</h3>
                </div>
         </div>
-       
+        {cargando ? <Spinner /> : null}  
         </Fragment>           
 );
 }

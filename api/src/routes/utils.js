@@ -6,11 +6,10 @@ const { Sequelize } = require('sequelize');
 
 
 //busco y traigo de la api los primeros 40 pokemons
-let url = 'https://pokeapi.co/api/v2/pokemon?limit=100'
+let url = 'https://pokeapi.co/api/v2/pokemon?limit=45'
 const pokemonList = async () =>{
     let firstTwenty = await axios.get(url);
     let pokemonsTotal = [...firstTwenty.data.results]
-    console.log('hola',pokemonsTotal)
     return pokemonsTotal;
 }
 
