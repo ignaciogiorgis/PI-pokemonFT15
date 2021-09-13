@@ -25,8 +25,10 @@ const axios = require('axios');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, async () => {
-    console.log('%s listening at 3001')// eslint-disable-line no-console
+  server.listen(process.env.PORT, async () => {
     baseDataTypes();
+    console.log('%s listening at 3001')// eslint-disable-line no-console
+    
+    
    });
 });

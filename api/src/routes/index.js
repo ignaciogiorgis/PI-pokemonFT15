@@ -99,6 +99,7 @@ router.post('/pokemons', async(req,res)=>{
 })
 
 router.get('/types', async (req, res)=>{
+     
     let typesListDb = await Type.findAll({
         attributes: ['name']
     })
