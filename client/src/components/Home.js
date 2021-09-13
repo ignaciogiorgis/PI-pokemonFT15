@@ -41,7 +41,7 @@ const Home = () => {
 
     setTimeout(() => {
         guardarCargando(false)
-    }, 4900);
+    }, 6000);
 
     
      function handleRefresh(e){
@@ -165,14 +165,16 @@ const Home = () => {
             { 
                 pokemonsCurrentPage.map((p, id)=>{
                     return (
-                        <Pokemon key={p.id} id={p.id} name={p.name} img={p.img} types={p.types} />
+                        <div className="cont-img-pokemon">
+                            <Pokemon key={p.id} id={p.id} name={p.name} img={p.img} types={p.types} />
+                        </div>
                     )
                   })
                 
                 }
                 </div> 
-
-            </div>
+                </div>
+            
 
             } 
             

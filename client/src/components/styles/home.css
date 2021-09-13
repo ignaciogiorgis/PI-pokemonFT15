@@ -2,13 +2,14 @@
 
 .menu{
     background: url(../../pikachu.jpg);
-    background-size: cover;
+    background-size: contain;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-bottom: 30px;
-    height: 490px;
+    height: 390px;
  } 
  
 .menu-secundario{
@@ -17,7 +18,7 @@
     column-gap: 20px;
 }
 .title{
-    font-size: 35px;
+    font-size: 25px;
     color: rgb(255, 255, 255);
     margin-left: 65px;
 
@@ -74,12 +75,19 @@
 }
 
 .img-pokemon{
-    width: 95%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 20px;
-    margin: 50px 150px;
+   width: 95%;
+   display: grid;
+   grid-template-columns:  repeat(3, 1fr);
+   row-gap: 10px; 
+   justify-content: end;
  }
+
+ .cont-img-pokemon{
+     margin-left: 150px;
+ }
+
+ 
+ 
 .container{
     display: flex;
 }
@@ -93,13 +101,13 @@
 }
 
 .container-menu label{
-    font-size: 18px;
+    font-size: 15px;
     color: rgb(0, 0, 0);
 
 }
 
 .select-layout{
-    font-size: 20px;
+    font-size:15px;
 }
 
 .select-layout, select{

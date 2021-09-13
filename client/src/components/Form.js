@@ -5,7 +5,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import { getTypes, postPokemon } from '../actions';
 import Spinner from './Spinner';
 
-
 function validate(input){
     let errors = {}
     if(!input.name){
@@ -32,12 +31,10 @@ function validate(input){
 
 
 
-
-
 const Form = () => {
     const dispatch = useDispatch()
     const allTypes = useSelector(state => state.types)
-    const [errors, seterrors] = useState({})
+    const [errors, seterrors] = useState(false)
     const [input, setInput] = useState({
         name: '',
         hp:'',
@@ -64,6 +61,7 @@ function handleChange(e){
             ...input,
             [e.target.name]: e.target.value
         }))
+        
     }
 
 function handleSelect(e){
@@ -75,6 +73,7 @@ function handleSelect(e){
         ...input,
         [e.target.name]: e.target.value
     }))
+   
 
 }
 
@@ -100,8 +99,7 @@ function handleSubmit(e){
        dispatch(getTypes())
     }, [dispatch])
 
-
-
+    
 
 
 
@@ -110,8 +108,9 @@ function handleSubmit(e){
          <div className="fondo-form">       
          <div className="form-container">
             <h1 className="titulo-form">Crea Tu pokemon</h1>
+            
             <form onSubmit={(e)=>handleSubmit(e)}>
-             <div className="form-secundari">
+            <div className="form-secundari">
                 <div className="input-form">
                     <label>Nombre : </label>
                     <input   type="text" name="name" placeholder='Nombre' value={input.name} onChange={(e)=>handleChange(e)} />

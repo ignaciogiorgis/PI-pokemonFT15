@@ -1,11 +1,12 @@
 .principal-card{
     width: 200px;
-    height: 400px;
+    height: 350px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     border: black solid 0.2px;
     justify-content: space-between;
+   
     
 }
 
@@ -16,8 +17,8 @@
 }
 
 img {
-    height: 45%;
-    width: 60%;
+    height: 25%;
+    width: 50%;
     margin-top: 20px;
     margin-left: 45px;
 }
