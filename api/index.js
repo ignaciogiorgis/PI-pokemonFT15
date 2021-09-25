@@ -24,8 +24,9 @@ const { Type } = require('./src/db.js');
 const axios = require('axios');
 
 // Syncing all the models at once.
+let port = process.env.PORT || 3001
 conn.sync({ force: true }).then(() => {
-  server.listen(process.env.PORT, async () => {
+  server.listen(port, async () => {
     baseDataTypes();
     console.log('%s listening at 3001')// eslint-disable-line no-console
     
