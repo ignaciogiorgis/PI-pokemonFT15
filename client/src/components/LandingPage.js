@@ -1,7 +1,5 @@
-import React, {Fragment, useState, useEffect } from 'react';
+import React, {Fragment } from 'react';
 import {Link} from 'react-router-dom';
-
-
 import './styles/landing.css'
 
 

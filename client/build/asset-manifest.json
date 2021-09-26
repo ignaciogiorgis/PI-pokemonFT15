@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.307e0fb2.chunk.css",
+    "main.js": "/static/js/main.bb592f6a.chunk.js",
+    "main.js.map": "/static/js/main.bb592f6a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4103e0aa.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4103e0aa.js.map",
+    "static/js/2.287e0f76.chunk.js": "/static/js/2.287e0f76.chunk.js",
+    "static/js/2.287e0f76.chunk.js.map": "/static/js/2.287e0f76.chunk.js.map",
+    "static/js/3.a0063e08.chunk.js": "/static/js/3.a0063e08.chunk.js",
+    "static/js/3.a0063e08.chunk.js.map": "/static/js/3.a0063e08.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.307e0fb2.chunk.css.map": "/static/css/main.307e0fb2.chunk.css.map",
+    "static/js/2.287e0f76.chunk.js.LICENSE.txt": "/static/js/2.287e0f76.chunk.js.LICENSE.txt",
+    "static/media/landing.css": "/static/media/fondo3.a46db670.jpg",
+    "static/media/form.css": "/static/media/fondo5.43afa8a5.jpg",
+    "static/media/deteail.css": "/static/media/fondo6.e7ebaa0f.jpg",
+    "static/media/home.css": "/static/media/pikachu.2a75eada.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4103e0aa.js",
+    "static/js/2.287e0f76.chunk.js",
+    "static/css/main.307e0fb2.chunk.css",
+    "static/js/main.bb592f6a.chunk.js"
+  ]
+}

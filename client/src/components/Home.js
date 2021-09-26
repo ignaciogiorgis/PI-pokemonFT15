@@ -1,6 +1,6 @@
 import React,{Fragment} from 'react';
 import { Link } from 'react-router-dom';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect} from 'react';
 
 import {useDispatch, useSelector} from 'react-redux';
 import { getPokemons, filterTypes, filterExist, ordAlfabetic, ordAttack, getTypes } from '../actions';
@@ -17,9 +17,9 @@ const Home = () => {
     const allPokemons = useSelector(state => state.pokemons)//arreglo de pokemons que me trae el reducer
     const allTypes = useSelector(state=> state.types)
     
-    const [orden, setOrden] = useState('');
+    const [, setOrden] = useState('');
     const [pageNumber, setPageNumber]  = useState(1); //numero de pagina
-    const [pokemonsPerPage, setPokemonsPerPage]  = useState(9); // pokemons por pagina
+    const [pokemonsPerPage, ]  = useState(9); // pokemons por pagina
     const lastPokemonIndex = pageNumber* pokemonsPerPage; //indice del ultimo pokemon en la pagina
     const firstPokemonIndex = lastPokemonIndex - pokemonsPerPage;// indice del primer pokemon
     const pokemonsCurrentPage = allPokemons.slice(firstPokemonIndex, lastPokemonIndex);

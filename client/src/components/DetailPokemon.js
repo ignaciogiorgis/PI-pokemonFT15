@@ -13,7 +13,7 @@ const DetailPokemon = (props) => {
   
   useEffect(() => {
     dispatch(getDetail(props.match.params.id))
-  }, [dispatch])
+  }, [dispatch, props.match.params.id])
 
   const pokemonId = useSelector(state=> state.pokemonsDetail)
 

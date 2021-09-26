@@ -36,7 +36,7 @@ img {
 .card-secundari {
     display: flex;
     justify-content: start;
-    align-items: flex-start
+    align-items: flex-start;
 }
 
 .card-secundari h3{

@@ -7,7 +7,7 @@ import './styles/form.css';
 const SearchPokemon = ({setPageNumber}) => {
    const dispatch = useDispatch();
    const [name, setName] =  useState('');
-   const [orden, setOrden] = useState('');
+   const [, setOrden] = useState('');
 
    function handleInputChange(e){
        e.preventDefault();
