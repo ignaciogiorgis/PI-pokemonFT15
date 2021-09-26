@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export function getPokemons(){
     return async function(dispatch){
-            const json = await axios.get("/pokemons");
+            const json = await axios.get("https://app-pokemon-pi.herokuapp.com/pokemons");
             return dispatch({
                 type:'GET_POKEMONS',
                 payload: json.data
@@ -44,7 +44,7 @@ export function searchName(name){
     
     return async function(dispatch){
         try{ 
-            const json = await axios.get('/pokemons?name='+ name);
+            const json = await axios.get('https://app-pokemon-pi.herokuapp.com/pokemons?name='+ name);
             return dispatch({
                 type:'SEARCH_BY_NAME',
                 payload: json.data
@@ -67,7 +67,7 @@ export function getTypes(){
 
 export function postPokemon(payload){
     return async function(dispatch){
-        const json = await axios.post('/pokemons', payload)
+        const json = await axios.post('https://app-pokemon-pi.herokuapp.com/pokemons', payload)
         
         return json
     }
@@ -79,7 +79,7 @@ export function getDetail(id){
     
     return async function(dispatch){
         try{ 
-            const json = await axios.get('/pokemons/'+ id);
+            const json = await axios.get('https://app-pokemon-pi.herokuapp.com/pokemons/'+ id);
             return dispatch({
                 type:'SEARCH_BY_ID',
                 payload: json.data
