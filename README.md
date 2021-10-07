@@ -167,3 +167,29 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
 - [ ] Al menos tener un componente del frontend con sus tests respectivos
 - [ ] Al menos tener una ruta del backend con sus tests respectivos
 - [ ] Al menos tener un modelo de la base de datos con sus tests respectivos
+
+
+🥂🥂🥂Proyecto ya terminado🥂🥂🥂
+
+Landing Page
+
+![pokemon1](https://user-images.githubusercontent.com/82051708/136308313-899c6132-3330-4b47-a59a-b4d95796a108.png)
+
+Home
+
+![pokemon2](https://user-images.githubusercontent.com/82051708/136308378-f849e188-c3c4-42bc-a02f-010c586e8691.png)
+
+
+![pokemon3](https://user-images.githubusercontent.com/82051708/136308396-45ef79e9-69f3-49bb-b551-7a4e7dd3a633.png)
+
+
+Formulario de creacion de Pokemon 
+
+
+![pokemon4](https://user-images.githubusercontent.com/82051708/136308429-3b6589ae-3450-483c-8233-ddf970085821.png)
+
+
+
+
+
+
